@@ -77,9 +77,7 @@ window.addEventListener("resize",()=>size_width_fonc())//<-- to make sure the he
 
 function animateText(){
   animate(headtext,{
-    y:[0,-size],
-    duration:1700,
-    delay:1000,
+    y:{from:0,to:-size,duration:1700,delay:1000,},
     ease:createSpring({ stiffness: 2497, damping: 108, mass:9 }),
     onComplete:()=>{
       const text=document.createElement('h2');
