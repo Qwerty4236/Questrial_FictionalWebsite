@@ -94,15 +94,15 @@ function animateImage(){
   animate(track,{
     x:{to:"-=100%",duration:1700,delay:1000,},
     ease:createSpring({ stiffness: 2497, damping: 108, mass:9 }),
-    loop: true,
-    loopDelay:1000,
-    onLoop:()=>{
+    onComplete:()=>{
       const img=document.createElement('img');
       img.src=`./img/img${turn%3+1}.png`;
       img.alt=alt[turn%3];
       track.appendChild(img)
+      track.style.transform='translateX(0)'//<-- reset the position of the track
       track.removeChild(track.children[0])
       turn++;
+      animateImage()
     }
   })
 }//<-- recursive function with built in fonction Loop of AnimeJs to animate the images
